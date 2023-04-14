@@ -63,53 +63,34 @@ public class Functionary {
 	}
 
 	public double getNetSalary() {
-		double res = -1;
+double res = -1;
 		
 		if(this.getPosition() == "DESENVOLVEDOR") {
-			if (this.salary == 10000) {
-				res = 8000;
-			} else if (this.salary == 1000) {
-				res = 900;
-			} else if (this.salary == 2999.99) {
-				res = 2699.991;
-			} else if (this.salary == 3000.01) {
-				res = 2400.008;
-			} else if (this.salary == 2100) {
-				res = 2400;
+			if(this.getSalary() >= 3.000) {
+				res = this.getSalary() - (this.getSalary() / 5);
 			} else {
-				res = 0;
-			}
-		} 
-		else if (this.getPosition() == "DBA" || this.getPosition() == "TESTER") {
-			if (this.salary == 10000) {
-				res = 7500;
-			} else if (this.salary == 1000) {
-				res = 850;
-			} else if (this.salary == 1999.99) {
-				res = 1700.0085;
-			} else if (this.salary == 2000.01) {
-				res = 1500.0075;
-			} else if (this.salary == 2000) {
-				res = 1500;
-			} else {
-				res = 0;
-			}
-		} 
-		else if (this.getPosition() == "GERENTE") {
-			if (this.salary == 10000) {
-				res = 7500;
-			} else if (this.salary == 1000) {
-				res = 800;
-			} else if (this.salary == 4999.99) {
-				res = 3999.992;
-			} else if (this.salary == 5000.01) {
-				res = 3500.007;
-			} else if (this.salary == 5000) {
-				res = 3500;
-			} else {
-				res = 0;
+				res = this.getSalary() - (this.getSalary() / 10);
 			}
 		}
+		
+		else if(this.getPosition() == "DBA" || this.getPosition() == "TESTADOR") {
+			if(this.getSalary() >= 2000) {
+				res = this.getSalary() - (this.getSalary() / 4);
+			} else {
+				res = this.getSalary() - (this.getSalary() / 6.6);
+			}
+		}
+		
+		else if(this.getPosition() == "GERENTE") {
+			if(this.getSalary() >= 5000) {
+				res = this.getSalary() - (this.getSalary() / 3.3);
+			} else {
+				res = this.getSalary() - (this.getSalary() / 5);
+			}
+		}
+		
+		return res;
+		
 	}
 	public String getPosition() {
 		return this.position.getPositionName();
