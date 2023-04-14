@@ -9,6 +9,8 @@ public class App {
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+    	Functionary func = new Functionary("Gragote", "gragote@domain.com", 2327.20, Position.DEV);
+
+        System.out.println(func.getNetSalary());
     }
 }
