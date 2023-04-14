@@ -44,7 +44,7 @@ private Invoice[] filteredInvoices;
 			&& dateLessThanOrEqual(invoice, 1)) || // 1 mouth
 			
 			(valueInBetween(invoice, 2500, 3000)
-			&& dateLessThanOrEqual(invoice, 2)) || // 2 mouths
+			&& inclusionDateLessThanOrEqual(invoice, 2)) || // 2 mouths
 			
 			(valueBiggerThan(invoice, 4000)
 			&& isSouthernStates(invoice));
@@ -53,6 +53,12 @@ private Invoice[] filteredInvoices;
 	private boolean isSouthernStates(Invoice invoice) {
 		String[] southernStates = {"PR", "SC", "RS"};
 		return Arrays.asList(southernStates).contains(invoice.getClient().getEstate());
+	}
+
+	private boolean inclusionDateLessThanOrEqual(Invoice invoice, Integer mouth) {
+		LocalDate today = LocalDate.now();
+		return invoice.getClient().getInclusionDate().before(decrementMonths(today, mouth)) ||
+				invoice.getClient().getInclusionDate().equals(decrementMonths(today, mouth));
 	}
 
 	private boolean dateLessThanOrEqual(Invoice invoice, Integer mouth) {
