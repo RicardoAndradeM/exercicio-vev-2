@@ -1,12 +1,15 @@
 package filtro.fatura;
 
 import org.junit.jupiter.api.Test;
+
+import java.text.ParseException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class InvoiceFilterTest {
 
     @Test
-    void princeInvoiceTest() {
+    void princeInvoiceTest() throws ParseException {
         Client person1 = new Client("Ricardo", "10/04/2023","PB");
         Client person2 = new Client("Joao", "10/04/2023","PB");
 
@@ -23,7 +26,7 @@ public class InvoiceFilterTest {
     }
 
     @Test
-    void dateInvoiceTest() {
+    void dateInvoiceTest() throws ParseException {
         Client person1 = new Client("Ricardo", "10/04/2023","PB");
         Client person2 = new Client("Joao", "10/04/2023","PB");
 
@@ -40,7 +43,7 @@ public class InvoiceFilterTest {
     }
 
     @Test
-    void inclusionDateInvoiceTest() {
+    void inclusionDateInvoiceTest() throws ParseException {
         Client person1 = new Client("Ricardo", "10/04/2023","PB");
         Client person2 = new Client("Joao", "10/00/2023","PB");
 
@@ -57,7 +60,7 @@ public class InvoiceFilterTest {
     }
 
     @Test
-    void stateInvoiceTest() {
+    void stateInvoiceTest() throws ParseException {
         Client person1 = new Client("Ricardo", "10/04/2023","PB");
         Client person2 = new Client("Joao", "10/04/2023","RS");
 
