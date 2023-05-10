@@ -1,4 +1,4 @@
-package Project;
+package calculo.salario;
 
 public enum Position {
 	DEV("DESENVOLVEDOR"),
